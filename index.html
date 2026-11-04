@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Food Journal</title>
+  <meta name="theme-color" content="#FBF6EC">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app" data-view="list">
+
+    <header class="topbar">
+      <h1 class="brand">Food Journal</h1>
+      <button class="btn btn-primary" id="newBtn" type="button">+ New note</button>
+    </header>
+
+    <main class="layout">
+      <!-- Left column: search, filters, list of notes -->
+      <section class="sidebar" aria-label="Your notes">
+        <input class="search" type="search" id="search" placeholder="Search notes…" aria-label="Search notes" autocomplete="off">
+        <div class="chips" aria-label="Filter by category">
+          <button class="chip" type="button" data-filter="all">All</button>
+          <button class="chip" type="button" data-filter="home">Home</button>
+          <button class="chip" type="button" data-filter="restaurant">Restaurant</button>
+        </div>
+        <ul class="note-list" id="noteList"></ul>
+        <p class="empty-list" id="emptyList" hidden></p>
+      </section>
+
+      <!-- Right column: the selected note, or the edit form -->
+      <section class="detail" id="detail" aria-live="polite"></section>
+    </main>
+
+    <!-- Bottom tab bar (only shown on phones) -->
+    <nav class="tabbar" aria-label="Categories">
+      <button class="tab" type="button" data-filter="all"><span aria-hidden="true">📒</span>All</button>
+      <button class="tab" type="button" data-filter="home"><span aria-hidden="true">🍳</span>Home</button>
+      <button class="tab" type="button" data-filter="restaurant"><span aria-hidden="true">🍜</span>Restaurant</button>
+      <button class="tab tab-new" type="button" id="tabNew"><span aria-hidden="true">＋</span>New</button>
+    </nav>
+  </div>
+
+  <!-- Plain scripts (no build tools). store.js must load first. -->
+  <script src="store.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
